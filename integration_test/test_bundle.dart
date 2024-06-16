@@ -11,6 +11,7 @@ import 'package:test_api/src/backend/invoker.dart';
 // START: GENERATED TEST IMPORTS
 import 'auth_failed_test.dart' as auth_failed_test;
 import 'auth_success_test.dart' as auth_success_test;
+import 'home_find_item_no17_test.dart' as home_find_item_no17_test;
 // END: GENERATED TEST IMPORTS
 
 Future<void> main() async {
@@ -69,6 +70,7 @@ Future<void> main() async {
   // START: GENERATED TEST GROUPS
   group('auth_failed_test', auth_failed_test.main);
   group('auth_success_test', auth_success_test.main);
+  group('home_find_item_no17_test', home_find_item_no17_test.main);
   // END: GENERATED TEST GROUPS
 
   final dartTestGroup = await testExplorationCompleter.future;

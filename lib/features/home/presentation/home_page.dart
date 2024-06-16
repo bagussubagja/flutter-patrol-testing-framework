@@ -5,10 +5,24 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Welcome, Bagus Subagja!'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Welcome, Bagus Subagja!'),
       ),
+      body: SafeArea(
+          child: SingleChildScrollView(
+        child: Column(
+          children: List.generate(
+            100,
+            (index) => ListTile(
+              leading: Text(
+                (index + 1).toString(),
+              ),
+              title: Text('Ini item ke ${index + 1}'),
+            ),
+          ),
+        ),
+      )),
     );
   }
 }
