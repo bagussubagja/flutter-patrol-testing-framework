@@ -27,6 +27,11 @@ android {
     compileSdk flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
+    testOptions {
+        execution "ANDROIDX_TEST_ORCHESTRATOR"
+    }
+
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -45,10 +50,13 @@ android {
         applicationId "com.example.flutter_patrol_testing_framework"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 23
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        testInstrumentationRunner "pl.leancode.patrol.PatrolJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: "true"
+
     }
 
     buildTypes {
@@ -57,6 +65,9 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
+        debug {
+            minifyEnabled false
+        }
     }
 }
 
@@ -64,4 +75,6 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    androidTestUtil "androidx.test:orchestrator:1.4.2"
+}
